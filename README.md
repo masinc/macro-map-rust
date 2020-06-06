@@ -4,6 +4,11 @@ This provides some map macros.
 
 ## Usage
 
+Add the following to the dependencies section of Cargo.toml.
+```toml
+macro-map = { git = "https://github.com/masinc/macro-map-rust" }
+```
+
 ### hash_map! btree_map!
 
 `hash_map!` macro creates `std::collections::Hashmap`.
@@ -15,6 +20,9 @@ This provides some map macros.
 
 
     ```rust
+    #[macro_use(hash_map!)]
+    extern crate macro_map;
+
     let map = hash_map!("a" => 1, "b" => 2, "c" => 3);
     let map = hash_map!(
         "a" => 1
@@ -37,6 +45,10 @@ This provides some map macros.
     The usage of `btree_map!` is the same for `hash_map!`.
 
     ```rust
+    #[macro_use(btree_map!)]
+    extern crate macro_map;
+
+
     let map = btree_map!("a" => 1, "b" => 2, "c" => 3);
     let map = btree_map!(
         "a" => 1
@@ -52,6 +64,9 @@ This provides some map macros.
 * Example
 
     ```rust
+    #[macro_use(map!)]
+    extern crate macro_map;
+
     use std::collections::{HashMap, BTreeMap};
 
     //create HashMap
@@ -78,9 +93,12 @@ This provides some map macros.
 
 `map_for!` macro creates a map of the specified type.
 
-* Usage
+* Example
 
     ```rust
+    #[macro_use(map_for!)]
+    extern crate macro_map;
+
     use std::collections::{HashMap, BTreeMap};
 
     //create HashMap
